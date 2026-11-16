@@ -1,0 +1,216 @@
+:root {
+  --sky: #c6e0f9;
+  --ink: #1d2b44;
+  --muted: #4a5b78;
+  --accent: #ff6f8e;
+  --card: #ffffff;
+  --page: #f6faff;
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui,
+    -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+}
+
+/* 상단 바 */
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px clamp(16px, 4vw, 40px);
+  background: rgba(198, 224, 249, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.brand {
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 20px;
+}
+
+.topbar nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.topbar nav a:hover,
+.topbar nav a:focus-visible {
+  color: var(--ink);
+}
+
+/* 히어로 */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 80px clamp(16px, 6vw, 80px) 24px;
+  background: var(--sky);
+  overflow: hidden;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  line-height: 1.2;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.lead {
+  margin: 0 0 28px;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: #fff;
+}
+
+.btn-ghost {
+  border: 2px solid var(--ink);
+}
+
+.illo {
+  width: 100%;
+  height: min(70vh, 560px);
+  cursor: grab;
+}
+
+.illo:active {
+  cursor: grabbing;
+}
+
+/* 섹션 */
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 72px clamp(16px, 4vw, 40px) 24px;
+}
+
+.section h2 {
+  margin: 0 0 16px;
+  font-size: 1.8rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 22px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(29, 43, 68, 0.08);
+}
+
+.card h3 {
+  margin: 0 0 8px;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.links {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.footer {
+  margin-top: 72px;
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--muted);
+  background: var(--sky);
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* 모바일: 캐릭터를 글 아래로 */
+@media (max-width: 720px) {
+  .hero {
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 8px;
+  }
+
+  .illo {
+    height: 44vh;
+  }
+
+  .topbar nav {
+    gap: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn {
+    transition: none;
+  }
+}
